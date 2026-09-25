@@ -1,0 +1,176 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+    --background: oklch(0.911 0.019 263.005);
+    --foreground: oklch(0.295 0.069 254.26);
+    --card: oklch(0.978 0.002 17.195);
+    --card-foreground: oklch(0.295 0.069 254.26);
+    --popover: oklch(0.978 0.002 17.195);
+    --popover-foreground: oklch(0.295 0.069 254.26);
+    --primary: oklch(0.545 0.111 254.079);
+    --primary-foreground: oklch(0.978 0.002 17.195);
+    --secondary: oklch(0.295 0.069 254.26);
+    --secondary-foreground: oklch(0.978 0.002 17.195);
+    --muted: oklch(0.87 0.02 263);
+    --muted-foreground: oklch(0.45 0.05 254);
+    --accent: oklch(0.85 0.03 254);
+    --accent-foreground: oklch(0.295 0.069 254.26);
+    --destructive: oklch(0.55 0.2 25);
+    --destructive-foreground: oklch(0.978 0.002 17.195);
+    --border: oklch(0.8 0.03 260);
+    --input: oklch(0.8 0.03 260);
+    --ring: oklch(0.545 0.111 254.079);
+    --chart-1: oklch(0.545 0.111 254.079);
+    --chart-2: oklch(0.295 0.069 254.26);
+    --chart-3: oklch(0.7 0.06 254);
+    --chart-4: oklch(0.55 0.2 25);
+    --chart-5: oklch(0.6 0.03 260);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.295 0.069 254.26);
+    --sidebar-foreground: oklch(0.978 0.002 17.195);
+    --sidebar-primary: oklch(0.545 0.111 254.079);
+    --sidebar-primary-foreground: oklch(0.978 0.002 17.195);
+    --sidebar-accent: oklch(0.38 0.08 254);
+    --sidebar-accent-foreground: oklch(0.978 0.002 17.195);
+    --sidebar-border: oklch(0.38 0.06 254);
+    --sidebar-ring: oklch(0.545 0.111 254.079);
+
+    /* Status colors for score meters/charts — validated for CVD safety and
+       contrast against the light surface via the dataviz palette validator. */
+    --chart-good: #15803d;
+    --chart-warning: #f59e0b;
+    --chart-critical: #dc2626;
+}
+
+.dark {
+    --background: oklch(0.16 0.04 254);
+    --foreground: oklch(0.978 0.002 17.195);
+    --card: oklch(0.295 0.069 254.26);
+    --card-foreground: oklch(0.978 0.002 17.195);
+    --popover: oklch(0.295 0.069 254.26);
+    --popover-foreground: oklch(0.978 0.002 17.195);
+    --primary: oklch(0.545 0.111 254.079);
+    --primary-foreground: oklch(0.978 0.002 17.195);
+    --secondary: oklch(0.35 0.07 254);
+    --secondary-foreground: oklch(0.978 0.002 17.195);
+    --muted: oklch(0.22 0.05 254);
+    --muted-foreground: oklch(0.75 0.03 260);
+    --accent: oklch(0.3 0.06 254);
+    --accent-foreground: oklch(0.978 0.002 17.195);
+    --destructive: oklch(0.6 0.2 25);
+    --destructive-foreground: oklch(0.978 0.002 17.195);
+    --border: oklch(0.35 0.07 254);
+    --input: oklch(0.35 0.07 254);
+    --ring: oklch(0.545 0.111 254.079);
+    --chart-1: oklch(0.545 0.111 254.079);
+    --chart-2: oklch(0.7 0.06 254);
+    --chart-3: oklch(0.978 0.002 17.195);
+    --chart-4: oklch(0.6 0.2 25);
+    --chart-5: oklch(0.6 0.03 260);
+    --sidebar: oklch(0.295 0.069 254.26);
+    --sidebar-foreground: oklch(0.978 0.002 17.195);
+    --sidebar-primary: oklch(0.545 0.111 254.079);
+    --sidebar-primary-foreground: oklch(0.978 0.002 17.195);
+    --sidebar-accent: oklch(0.38 0.08 254);
+    --sidebar-accent-foreground: oklch(0.978 0.002 17.195);
+    --sidebar-border: oklch(0.38 0.06 254);
+    --sidebar-ring: oklch(0.545 0.111 254.079);
+
+    /* Re-stepped against the dark surface, not a flip of the light values —
+       see the dataviz palette validator output for this exact triple. */
+    --chart-good: #15803d;
+    --chart-warning: #d97706;
+    --chart-critical: #be123c;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer utilities {
+    .animate-float {
+        animation: float 7s ease-in-out infinite;
+    }
+
+    .animate-float-delayed {
+        animation: float 7s ease-in-out infinite;
+        animation-delay: -3.5s;
+    }
+
+    @keyframes float {
+        0%,
+        100% {
+            transform: translate(0, 0);
+        }
+        50% {
+            transform: translate(0, -16px);
+        }
+    }
+}
